@@ -1,0 +1,14 @@
+type Course {
+  _id: ID!,
+  title: String!,
+  teacher: String,
+  description: String!,
+  topic: String,
+}
+
+type Query {
+  "Return all courses"
+  courses: [Course]
+  "Return one courses"
+  course(id: ID!): [Course]
+}
