@@ -89,3 +89,75 @@ And on db.js
 ```
 const mongoUrl = `mongodb://${DB_USER}:${DB_PASSWD}@${DB_HOST}:${DB_PORT}`;
 ```
+
+## Aliases and Fragments
+
+Dentro de GraphQL podemos correr más de una petición a la vez y nombrarlas de distinta manera para poder identificarlas, esto es posible gracias a los Aliases o simplemente Alias.
+
+La sintaxis de un Alias es bastante simple:
+
+```
+nombreDelAlias: tipoDeDato(argumento: tipo) {
+  datos
+}
+```
+
+Además de los Alias, podemos agrupar campos para ser reutilizados en distintas peticiones gracias a los Fragments.
+
+´´´
+{
+  AllCourses: courses {
+    _id
+    title
+  }
+  
+  Course1: course (id: "60b190f089a3510b4a6d462f") {
+    _id
+    title
+  }
+  
+  Course2: course (id: "60b190f089a3510b4a6d4630") {
+    _id
+    title
+  }
+  
+  Student1: student (id: "60c0b8e8d49024996265f206") {
+    name
+  }
+  
+}
+´´´
+
+Other example: 
+´´´
+{
+  AllCourses: courses {
+    ...CourseFields
+  }
+  
+  Course1: course (id: "60b190f089a3510b4a6d462f") {
+    ...CourseFields
+    teacher
+  }
+  
+  Course2: course (id: "60b190f089a3510b4a6d4630") {
+    ...CourseFields
+    topic
+  }
+  
+  Student1: student (id: "60c0b8e8d49024996265f206") {
+    name
+  }
+  
+}
+
+fragment CourseFields on Course {
+  _id
+  title
+  description
+  people {
+    _id
+    name
+  }
+}
+´´´
