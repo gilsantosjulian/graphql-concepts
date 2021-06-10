@@ -205,3 +205,42 @@ mutation CreateNewCourse ($createInput: CourseInput!) {
   }
 }
 ```
+
+## Interfaces - Monitor type
+Las interfaces son muy importantes y útiles cuando nos encontramos con tipos de datos similares. Una interfaz nos permite definir un tipo de dato padre que utilizando la palabra implements va a implementar los campos que tenga definidos dentro del tipo de dato que queramos.
+
+```
+// Create Monitor
+mutation CreateNewMonitor ($monitorInput: PersonInput!) {
+  createPerson (input: $monitorInput) {
+    _id
+    name
+  }
+}
+
+// Variables
+{
+  "monitorInput": {
+    "name": "Monitor 1",
+    "email": "monitor1@gmail.com",
+    "phone": "3001234567"
+  }
+}
+```
+
+Get People using fragments
+```
+{
+  people {
+    _id
+    name
+    email
+    ...on Monitor {
+      phone
+    }
+    ...on Student {
+      avatar
+    }
+  }
+}
+```
