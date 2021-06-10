@@ -244,3 +244,39 @@ Get People using fragments
   }
 }
 ```
+
+## Directives
+Las directivas son una instrucción que permite agregar condicionales a nuestras peticiones. Podemos modificar de manera dinámica nuestra query simplemente añadiendo:
+
+```
+@include(if: Boolean) {
+  datos
+}
+```
+
+Example:
+```
+query getPeopleData ($monitor: Boolean!, $avatar: Boolean!) {
+  people {
+    _id
+    name
+    email
+    ...on Monitor @include (if: $monitor) {
+      phone
+    }
+    ...on Student @include (if: $avatar) {
+      avatar
+      email
+    }
+  }
+}
+
+// Variables
+{
+  "monitor": false,
+  "avatar": true
+}
+```
+
+### Using @deprecated
+Is useful to mention that one property is deprecated. GraphQL will display a message to the user (The field is deprecated)

@@ -7,28 +7,28 @@ enum Level {
 
 "----------- Courses -----------"
 type Course {
-  _id: ID!,
-  title: String!,
-  teacher: String,
-  description: String!,
-  topic: String,
-  people: [Student],
+  _id: ID!
+  title: String!
+  teacher: String
+  description: String!
+  topic: String @deprecated
+  people: [Student]
   level: Level
 }
 
 input CourseInput {
-  title: String!,
-  teacher: String,
-  description: String!,
-  topic: String,
+  title: String!
+  teacher: String
+  description: String!
+  topic: String
   level: Level
 }
 
 input CourseEditInput {
-  title: String,
-  teacher: String,
-  description: String,
-  topic: String,
+  title: String
+  teacher: String
+  description: String
+  topic: String, 
 }
 
 "----------- People -----------"
