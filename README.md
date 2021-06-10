@@ -280,3 +280,39 @@ query getPeopleData ($monitor: Boolean!, $avatar: Boolean!) {
 
 ### Using @deprecated
 Is useful to mention that one property is deprecated. GraphQL will display a message to the user (The field is deprecated)
+
+## Unions
+Unions permite agrupar varios custom types sin importar si tienen algo en común, su sintaxis es la siguiente:
+
+```
+union SearchResult = CustomType1 | CustomType2 | CustomType3
+```
+
+Create indices
+```
+db.courses.createIndex({"$**": "text"})
+db.students.createIndex({"$**": "text"})
+```
+
+Example of Global Search and Union
+```
+{
+  searchItems (keyword: "1") {
+    __typename
+    ...on Course {
+      title
+      description
+    }
+    ...on Monitor {
+      name
+      phone
+    }
+    ...on Student {
+      name
+      email
+    }
+  }
+}
+```
+
+Al momento de realizar una query que retorna una union podemos identificar el tipo de dato solicitando el campo __typename.
