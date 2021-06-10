@@ -161,3 +161,8 @@ fragment CourseFields on Course {
   }
 }
 ´´´
+
+## Variables
+
+// CourseID: 60b190f089a3510b4a6d462f
+// StudentID: 60c0b8e8d49024996265f206
