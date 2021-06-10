@@ -180,3 +180,28 @@ mutation AddPersonToCourse2 ($course: ID!, $person: ID!) {
   "person": "60c0b8e8d49024996265f206"
 }
 ```
+
+## Enums
+Los Enums o enumeration types son tipos de datos escalares cuyos valores son configurables. Si definimos un tipo de dato como enum sus valores posibles solamente serán aquellos que se encuentren entre los definidos en el enum.
+
+```
+mutation CreateNewCourse ($createInput: CourseInput!) {
+  createCourse (input: $createInput) {
+    _id
+    title
+    description
+    level
+  }
+}
+
+// variables
+{
+  "createInput": {
+    "title": "Course 5",
+    "teacher": "Teacher Course 5",
+    "description": "Description Course 5",
+    "topic": "Topic Course 5",
+    "level": "beginner"
+  }
+}
+```
