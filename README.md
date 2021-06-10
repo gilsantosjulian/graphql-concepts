@@ -316,3 +316,11 @@ Example of Global Search and Union
 ```
 
 Al momento de realizar una query que retorna una union podemos identificar el tipo de dato solicitando el campo __typename.
+
+
+## API to Production
+Para que nuestra API sea accesible desde cualquier lugar debemos añadir el middleware cors a express, primero debemos instalarlo con el siguiente comando:
+
+```
+npm i cors
+```
