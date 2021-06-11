@@ -161,3 +161,22 @@ fragment CourseFields on Course {
   }
 }
 ´´´
+
+## Variables
+
+```
+mutation AddPersonToCourse2 ($course: ID!, $person: ID!) {
+  
+  addPeople(courseID: $course, personID: $person) {
+    _id
+    title
+  }
+  
+}
+
+// variables
+{
+  "course": "60c036b276e51e938b888a5b",
+  "person": "60c0b8e8d49024996265f206"
+}
+```
