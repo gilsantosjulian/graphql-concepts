@@ -46,11 +46,11 @@ type Query {
   "Return all courses"
   courses: [Course]
   "Return one course"
-  course(id: ID!): [Course]
+  course(id: ID!): Course
   "Return all students"
   students: [Student]
   "Return one student"
-  student(id: ID!): [Student]
+  student(id: ID!): Student
 }
 
 type Mutation {
