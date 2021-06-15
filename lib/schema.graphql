@@ -5,6 +5,9 @@ enum Level {
   advance
 }
 
+"----------- Union -----------"
+union GlobalSearch = Course | Student | Monitor
+
 "----------- Courses -----------"
 type Course {
   _id: ID!
@@ -78,6 +81,8 @@ type Query {
   people: [Person]
   "Return one person"
   person(id: ID!): Person
+  "Execute a Global Search"
+  searchItems(keyword: String!): [GlobalSearch]
 }
 
 type Mutation {
