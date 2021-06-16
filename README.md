@@ -324,3 +324,15 @@ Para que nuestra API sea accesible desde cualquier lugar debemos añadir el midd
 ```
 npm i cors
 ```
+
+## HTTP Requests
+Review how to do it with Postman
+
+## GraphQL Clients
+
+- [fetchql - npm ](https://www.npmjs.com/package/fetchql)
+- [graphql-request - npm](https://www.npmjs.com/package/graphql-request)
+- [apollo-client - npm](https://www.npmjs.com/package/apollo-client)
+- [Relay · A JavaScript framework for building data-driven React applications](https://facebook.github.io/relay/)
+- [Vue Apollo](https://vue-apollo.netlify.com/)
+- [Introduction - Apollo Docs](https://www.apollographql.com/docs/angular/)
